@@ -16,13 +16,12 @@
     margin: 0;
     padding: 12px;
     padding-top: calc(12px + env(safe-area-inset-top));
-    padding-bottom: calc(90px + env(safe-area-inset-bottom));
+    padding-bottom: calc(260px + env(safe-area-inset-bottom));
     color: #1f2329;
     font-size: 15px;
     overflow-x: hidden;
   }
-  h1 { font-size: 19px; margin: 4px 0 2px; }
-  .sub { color: #8a8f99; font-size: 12px; margin-bottom: 14px; }
+  h1 { font-size: 19px; margin: 4px 0 14px; }
 
   .tabs {
     display: flex;
@@ -45,11 +44,7 @@
     border-radius: 8px;
     cursor: pointer;
   }
-  .tabs button.active {
-    background: #4c8bf5;
-    color: #fff;
-    font-weight: 500;
-  }
+  .tabs button.active { background: #4c8bf5; color: #fff; font-weight: 500; }
 
   .card {
     background: #fff;
@@ -58,233 +53,88 @@
     box-shadow: 0 1px 4px rgba(0,0,0,0.05);
     margin-bottom: 14px;
   }
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .grid .full { grid-column: 1 / -1; }
-  label {
-    display: block;
-    font-size: 12px;
-    color: #646a73;
-    margin-bottom: 5px;
-  }
+  label { display: block; font-size: 12px; color: #646a73; margin-bottom: 5px; }
+  label .tip { color: #a8adb5; font-size: 11px; margin-left: 4px; }
   input, select, textarea {
-    width: 100%;
-    padding: 11px 10px;
-    border: 1px solid #dcdfe6;
-    border-radius: 8px;
-    font-size: 15px;
-    font-family: inherit;
-    background: #fff;
-    color: #1f2329;
+    width: 100%; padding: 11px 10px; border: 1px solid #dcdfe6; border-radius: 8px;
+    font-size: 15px; font-family: inherit; background: #fff; color: #1f2329;
   }
   select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path d='M2 4l4 4 4-4' stroke='%238a8f99' stroke-width='1.5' fill='none'/></svg>"); background-repeat: no-repeat; background-position: right 10px center; padding-right: 28px; }
   input:focus, select:focus, textarea:focus { outline: none; border-color: #4c8bf5; }
   textarea { resize: vertical; min-height: 52px; }
 
-  .now-row {
-    grid-column: 1 / -1;
-    display: flex;
-    justify-content: flex-end;
-  }
-  .now-btn {
-    background: #eef3fd;
-    color: #4c8bf5;
-    border: none;
-    border-radius: 8px;
-    padding: 8px 16px;
-    font-size: 13px;
-    cursor: pointer;
-  }
+  .now-row { grid-column: 1 / -1; display: flex; justify-content: flex-end; }
+  .now-btn { background: #eef3fd; color: #4c8bf5; border: none; border-radius: 8px; padding: 8px 16px; font-size: 13px; cursor: pointer; }
   .now-btn:active { background: #dbe6fb; }
 
-  .stars {
-    display: flex;
-    gap: 4px;
-    padding: 6px 0;
-    user-select: none;
-  }
-  .star {
-    font-size: 26px;
-    line-height: 1;
-    cursor: pointer;
-    color: #dcdfe6;
-    transition: color .15s, transform .1s;
-    padding: 2px;
-  }
+  .stars { display: flex; gap: 4px; padding: 6px 0; user-select: none; }
+  .star { font-size: 26px; line-height: 1; cursor: pointer; color: #dcdfe6; transition: color .15s, transform .1s; padding: 2px; }
   .star.on { color: #ffb400; }
   .star:active { transform: scale(0.85); }
 
   .toolbar { display: flex; gap: 10px; margin-top: 16px; }
-  button.primary {
-    flex: 1;
-    background: #4c8bf5;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 13px;
-    font-size: 15px;
-    font-weight: 500;
-    cursor: pointer;
-  }
+  button.primary { flex: 1; background: #4c8bf5; color: #fff; border: none; border-radius: 8px; padding: 13px; font-size: 15px; font-weight: 500; cursor: pointer; }
   button.primary:active { background: #3a78e0; }
-  button.ghost {
-    background: #fff;
-    color: #4c8bf5;
-    border: 1px solid #4c8bf5;
-    border-radius: 8px;
-    padding: 13px 18px;
-    font-size: 14px;
-    cursor: pointer;
-  }
-  button.danger {
-    background: #fff;
-    color: #e34d59;
-    border: 1px solid #e34d59;
-    border-radius: 6px;
-    padding: 5px 10px;
-    font-size: 12px;
-    cursor: pointer;
-  }
+  button.ghost { background: #fff; color: #4c8bf5; border: 1px solid #4c8bf5; border-radius: 8px; padding: 13px 18px; font-size: 14px; cursor: pointer; }
+  button.danger { background: #fff; color: #e34d59; border: 1px solid #e34d59; border-radius: 6px; padding: 5px 10px; font-size: 12px; cursor: pointer; }
   button.small { padding: 7px 14px; font-size: 13px; }
 
-  .rec {
-    background: #fff;
-    border-radius: 10px;
-    padding: 12px 14px;
-    margin-bottom: 10px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  }
-  .rec-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 6px;
-  }
+  .rec { background: #fff; border-radius: 10px; padding: 12px 14px; margin-bottom: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+  .rec-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
   .rec-date { font-size: 12px; color: #8a8f99; }
   .rec-summary { font-size: 15px; line-height: 1.5; margin-bottom: 8px; }
   .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
-  .tag {
-    font-size: 11px;
-    padding: 3px 8px;
-    border-radius: 20px;
-    background: #eef3fd;
-    color: #4c8bf5;
-  }
+  .tag { font-size: 11px; padding: 3px 8px; border-radius: 20px; background: #eef3fd; color: #4c8bf5; }
   .tag.gray { background: #f1f2f4; color: #646a73; }
   .tag.warm { background: #fdf0e9; color: #e07b39; }
-  .rec-scores {
-    display: flex;
-    gap: 12px;
-    font-size: 12px;
-    color: #646a73;
-    flex-wrap: wrap;
-  }
+  .rec-scores { display: flex; gap: 12px; font-size: 12px; color: #646a73; flex-wrap: wrap; }
   .rec-scores b { color: #1f2329; font-weight: 600; }
   .rec-scores .mini-star { color: #ffb400; letter-spacing: -1px; }
   .rec-actions { margin-top: 8px; text-align: right; }
 
-  .stat-title {
-    font-size: 14px;
-    font-weight: 600;
-    margin: 0 0 12px;
-    color: #1f2329;
-  }
-  .bar-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 8px;
-    font-size: 13px;
-  }
-  .bar-label {
-    width: 88px;
-    flex-shrink: 0;
-    color: #646a73;
-    text-align: right;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .bar-track {
-    flex: 1;
-    height: 18px;
-    background: #f1f2f4;
-    border-radius: 9px;
-    overflow: hidden;
-  }
-  .bar-fill {
-    height: 100%;
-    background: linear-gradient(90deg,#6ea8ff,#4c8bf5);
-    border-radius: 9px;
-    transition: width .4s;
-    min-width: 2px;
-  }
-  .bar-val {
-    width: 28px;
-    text-align: right;
-    color: #1f2329;
-    font-weight: 500;
-    flex-shrink: 0;
-  }
+  .stat-title { font-size: 14px; font-weight: 600; margin: 0 0 12px; color: #1f2329; }
+  .bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-size: 13px; }
+  .bar-label { width: 88px; flex-shrink: 0; color: #646a73; text-align: right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .bar-track { flex: 1; height: 18px; background: #f1f2f4; border-radius: 9px; overflow: hidden; }
+  .bar-fill { height: 100%; background: linear-gradient(90deg,#6ea8ff,#4c8bf5); border-radius: 9px; transition: width .4s; min-width: 2px; }
+  .bar-val { width: 28px; text-align: right; color: #1f2329; font-weight: 500; flex-shrink: 0; }
   .empty { color: #a8adb5; font-size: 13px; padding: 24px 0; text-align: center; }
 
-  .top-stats {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 10px;
-    margin-bottom: 14px;
-  }
-  .stat-box {
-    background: #fff;
-    border-radius: 10px;
-    padding: 12px 8px;
-    text-align: center;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  }
+  .top-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 14px; }
+  .stat-box { background: #fff; border-radius: 10px; padding: 12px 8px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
   .stat-num { font-size: 22px; font-weight: 600; color: #4c8bf5; }
   .stat-desc { font-size: 11px; color: #8a8f99; margin-top: 3px; }
 
-  .score-avg {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 0;
-    border-bottom: 1px solid #f1f2f4;
-    font-size: 13px;
-  }
+  .pie-wrap { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .pie-canvas-box { position: relative; width: 180px; height: 180px; }
+  .pie-canvas-box canvas { width: 100%; height: 100%; display: block; }
+  .pie-legend { width: 100%; display: flex; flex-direction: column; gap: 6px; font-size: 13px; }
+  .legend-item { display: flex; align-items: center; gap: 8px; }
+  .legend-color { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+  .legend-label { flex: 1; color: #1f2329; }
+  .legend-val { color: #8a8f99; font-size: 12px; }
+
+  .score-avg { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #f1f2f4; font-size: 13px; }
   .score-avg:last-child { border-bottom: none; }
   .score-avg span:first-child { color: #646a73; }
   .score-avg span:last-child { font-weight: 600; color: #1f2329; }
 
-  details summary {
-    cursor: pointer;
-    font-size: 14px;
-    color: #4c8bf5;
-    user-select: none;
-    padding: 4px 0;
-  }
-  .opt-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
-  .opt-row input { flex: 1; }
+  details summary { cursor: pointer; font-size: 14px; color: #4c8bf5; user-select: none; padding: 4px 0; }
+  .opt-row { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+  .opt-row input { flex: 1; min-width: 0; }
+  .opt-row .icon-btn { background: #f1f2f4; color: #646a73; border: none; border-radius: 6px; width: 34px; height: 34px; font-size: 14px; cursor: pointer; flex-shrink: 0; line-height: 1; padding: 0; }
+  .opt-row .icon-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+  .opt-row .icon-btn.top-btn { background: #eef3fd; color: #4c8bf5; font-weight: 600; }
   .hint { font-size: 12px; color: #8a8f99; margin-top: 8px; line-height: 1.5; }
 
   .hidden { display: none !important; }
   .toast {
-    position: fixed;
-    bottom: calc(80px + env(safe-area-inset-bottom));
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0,0,0,0.8);
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 14px;
-    opacity: 0;
-    transition: opacity .3s;
-    pointer-events: none;
-    z-index: 999;
+    position: fixed; bottom: calc(80px + env(safe-area-inset-bottom)); left: 50%;
+    transform: translateX(-50%); background: rgba(0,0,0,0.8); color: #fff;
+    padding: 10px 20px; border-radius: 8px; font-size: 14px;
+    opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 999;
   }
   .toast.show { opacity: 1; }
 </style>
@@ -292,7 +142,6 @@
 <body>
 
 <h1>视频观看记录</h1>
-<div class="sub">离线运行 · 数据存本机 · 手机友好</div>
 
 <div class="tabs">
   <button id="tab-add" class="active" onclick="switchTab('add')">记录</button>
@@ -304,38 +153,18 @@
 <div id="page-add">
   <div class="card">
     <div class="grid">
-      <div>
-        <label>日期</label>
-        <input type="text" id="f-date" placeholder="2026-10-05" inputmode="numeric">
-      </div>
-      <div>
-        <label>时间</label>
-        <input type="text" id="f-time" placeholder="14:30" inputmode="numeric">
-      </div>
-      <div class="now-row">
-        <button type="button" class="now-btn" onclick="fillNow()">现在</button>
-      </div>
+      <div><label>日期</label><input type="text" id="f-date" placeholder="2026-10-05" inputmode="numeric"></div>
+      <div><label>时间</label><input type="text" id="f-time" placeholder="14:30" inputmode="numeric"></div>
+      <div class="now-row"><button type="button" class="now-btn" onclick="fillNow()">现在</button></div>
 
       <div><label>内容类型</label><select id="f-type"></select></div>
       <div><label>情感基调</label><select id="f-tone"></select></div>
       <div class="full"><label>一句话概括</label><textarea id="f-summary" placeholder="如：3分钟讲清为什么你总是拖延"></textarea></div>
 
-      <div>
-        <label>信息密度</label>
-        <div class="stars" id="stars-density" data-field="density"></div>
-      </div>
-      <div>
-        <label>与自己的相关性</label>
-        <div class="stars" id="stars-relevance" data-field="relevance"></div>
-      </div>
-      <div>
-        <label>认知距离</label>
-        <div class="stars" id="stars-distance" data-field="distance"></div>
-      </div>
-      <div>
-        <label>情感强度</label>
-        <div class="stars" id="stars-intensity" data-field="intensity"></div>
-      </div>
+      <div><label>信息密度 <span class="tip">1低 5高</span></label><div class="stars" id="stars-density"></div></div>
+      <div><label>与自己的相关性 <span class="tip">1低 5高</span></label><div class="stars" id="stars-relevance"></div></div>
+      <div><label>认知熟悉度 <span class="tip">1陌生 5熟悉</span></label><div class="stars" id="stars-familiarity"></div></div>
+      <div><label>情感强度 <span class="tip">1低 5高</span></label><div class="stars" id="stars-intensity"></div></div>
 
       <div><label>第一眼被什么吸引</label><select id="f-attract"></select></div>
       <div><label>点击动机</label><select id="f-motive"></select></div>
@@ -347,6 +176,7 @@
       <button class="ghost" onclick="clearForm()">清空</button>
     </div>
   </div>
+  <div style="height: 80px;"></div>
 </div>
 
 <div id="page-list" class="hidden">
@@ -368,10 +198,26 @@
     <div class="stat-box"><div class="stat-num" id="s-week">0</div><div class="stat-desc">近7天</div></div>
   </div>
 
-  <div class="card"><div class="stat-title">内容类型分布</div><div id="chart-type"></div></div>
-  <div class="card"><div class="stat-title">情感基调分布</div><div id="chart-tone"></div></div>
-  <div class="card"><div class="stat-title">点击动机分布</div><div id="chart-motive"></div></div>
-  <div class="card"><div class="stat-title">互动行为分布</div><div id="chart-action"></div></div>
+  <div class="card">
+    <div class="stat-title">内容类型分布</div>
+    <div class="pie-wrap"><div class="pie-canvas-box"><canvas id="pie-type"></canvas></div><div class="pie-legend" id="legend-type"></div></div>
+  </div>
+
+  <div class="card">
+    <div class="stat-title">情感基调分布</div>
+    <div class="pie-wrap"><div class="pie-canvas-box"><canvas id="pie-tone"></canvas></div><div class="pie-legend" id="legend-tone"></div></div>
+  </div>
+
+  <div class="card">
+    <div class="stat-title">点击动机分布</div>
+    <div class="pie-wrap"><div class="pie-canvas-box"><canvas id="pie-motive"></canvas></div><div class="pie-legend" id="legend-motive"></div></div>
+  </div>
+
+  <div class="card">
+    <div class="stat-title">互动行为分布</div>
+    <div class="pie-wrap"><div class="pie-canvas-box"><canvas id="pie-action"></canvas></div><div class="pie-legend" id="legend-action"></div></div>
+  </div>
+
   <div class="card"><div class="stat-title">各项平均分</div><div id="chart-scores"></div></div>
   <div class="card"><div class="stat-title">近7天每日记录数</div><div id="chart-daily"></div></div>
 </div>
@@ -381,7 +227,7 @@
     <details open>
       <summary>自定义下拉选项</summary>
       <div id="options-editor" style="margin-top:12px;"></div>
-      <div class="hint">修改后自动保存，并同步到记录页的下拉框。评分项（星星）无需在这里设置。</div>
+      <div class="hint">↑↓ 微调顺序，⇧ 一键置顶。修改后自动保存，并同步到记录页的下拉框。</div>
     </details>
   </div>
   <div class="card">
@@ -414,7 +260,14 @@ const SELECT_MAP = {
   type:"f-type", tone:"f-tone", attract:"f-attract",
   motive:"f-motive", mood:"f-mood", action:"f-action"
 };
-const SCORE_FIELDS = ["density","relevance","distance","intensity"];
+const SCORE_FIELDS = ["density","relevance","familiarity","intensity"];
+const SCORE_LABELS = [
+  ["信息密度","density"],
+  ["与自己的相关性","relevance"],
+  ["认知熟悉度","familiarity"],
+  ["情感强度","intensity"]
+];
+const PIE_COLORS = ["#4c8bf5","#6ea8ff","#ffb400","#e07b39","#52c41a","#13c2c2","#eb2f96","#722ed1","#8c8c8c","#f5222d","#faad14","#a0d911"];
 
 let options = load("video_options", DEFAULTS);
 let records = load("video_records", []);
@@ -444,10 +297,11 @@ function fillSelects(){
   }
 }
 
-const scores = { density:0, relevance:0, distance:0, intensity:0 };
+const scores = { density:0, relevance:0, familiarity:0, intensity:0 };
 function buildStars(){
   SCORE_FIELDS.forEach(field=>{
     const box = document.getElementById("stars-"+field);
+    if(!box) return;
     box.innerHTML = "";
     for(let i=1;i<=5;i++){
       const s = document.createElement("span");
@@ -468,16 +322,14 @@ function setScore(field, val){
 function paintStars(){
   SCORE_FIELDS.forEach(field=>{
     const box = document.getElementById("stars-"+field);
+    if(!box) return;
     [...box.children].forEach(star=>{
       const v = parseInt(star.dataset.value);
       star.classList.toggle("on", v <= scores[field]);
     });
   });
 }
-function resetStars(){
-  SCORE_FIELDS.forEach(f=>scores[f]=0);
-  paintStars();
-}
+function resetStars(){ SCORE_FIELDS.forEach(f=>scores[f]=0); paintStars(); }
 
 function fillNow(){
   const now = new Date();
@@ -493,7 +345,7 @@ function addRecord(){
     tone:g("f-tone"),
     density: scores.density ? String(scores.density) : "",
     relevance: scores.relevance ? String(scores.relevance) : "",
-    distance: scores.distance ? String(scores.distance) : "",
+    familiarity: scores.familiarity ? String(scores.familiarity) : "",
     intensity: scores.intensity ? String(scores.intensity) : "",
     attract:g("f-attract"), motive:g("f-motive"), mood:g("f-mood"), action:g("f-action")
   };
@@ -550,7 +402,7 @@ function renderList(){
       <div class="rec-scores" style="flex-direction:column;gap:4px;">
         <span>信息密度 ${miniStars(r.density)}</span>
         <span>相关性 ${miniStars(r.relevance)}</span>
-        <span>认知距离 ${miniStars(r.distance)}</span>
+        <span>认知熟悉度 ${miniStars(r.familiarity)}</span>
         <span>情感强度 ${miniStars(r.intensity)}</span>
       </div>
       ${r.attract?`<div style="font-size:12px;color:#8a8f99;margin-top:6px;">吸引点：${esc(r.attract)}</div>`:""}
@@ -564,6 +416,78 @@ function countBy(field){
   records.forEach(r=>{ const v=r[field]; if(v) m[v]=(m[v]||0)+1; });
   return Object.entries(m).sort((a,b)=>b[1]-a[1]);
 }
+
+function drawPie(canvasId, legendId, data){
+  const canvas = document.getElementById(canvasId);
+  const legend = document.getElementById(legendId);
+  const ctx = canvas.getContext("2d");
+
+  const dpr = window.devicePixelRatio || 1;
+  const size = 180;
+  canvas.width = size * dpr;
+  canvas.height = size * dpr;
+  canvas.style.width = size + "px";
+  canvas.style.height = size + "px";
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.clearRect(0, 0, size, size);
+
+  if(!data.length){
+    legend.innerHTML = '<div class="empty">暂无数据</div>';
+    return;
+  }
+
+  const total = data.reduce((s, d) => s + d[1], 0);
+  const cx = size / 2;
+  const cy = size / 2;
+  const r = size / 2 - 6;
+  let startAngle = -Math.PI / 2;
+
+  data.forEach((item, idx) => {
+    const val = item[1];
+    const sliceAngle = (val / total) * Math.PI * 2;
+    const color = PIE_COLORS[idx % PIE_COLORS.length];
+
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.arc(cx, cy, r, startAngle, startAngle + sliceAngle);
+    ctx.closePath();
+    ctx.fillStyle = color;
+    ctx.fill();
+
+    ctx.strokeStyle = "#fff";
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    startAngle += sliceAngle;
+  });
+
+  ctx.beginPath();
+  ctx.arc(cx, cy, r * 0.55, 0, Math.PI * 2);
+  ctx.fillStyle = "#fff";
+  ctx.fill();
+
+  ctx.fillStyle = "#1f2329";
+  ctx.font = "600 22px -apple-system, 'PingFang SC', sans-serif";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillText(String(total), cx, cy - 6);
+  ctx.fillStyle = "#8a8f99";
+  ctx.font = "11px -apple-system, 'PingFang SC', sans-serif";
+  ctx.fillText("总条数", cx, cy + 14);
+
+  legend.innerHTML = data.map((item, idx) => {
+    const color = PIE_COLORS[idx % PIE_COLORS.length];
+    const pct = ((item[1] / total) * 100).toFixed(1);
+    return `
+      <div class="legend-item">
+        <div class="legend-color" style="background:${color}"></div>
+        <div class="legend-label">${esc(item[0])}</div>
+        <div class="legend-val">${item[1]} · ${pct}%</div>
+      </div>
+    `;
+  }).join("");
+}
+
 function drawBars(elId, data){
   const el = document.getElementById(elId);
   if(!data.length){ el.innerHTML = '<div class="empty">暂无数据</div>'; return; }
@@ -591,16 +515,12 @@ function renderStats(){
   document.getElementById("s-today").textContent = records.filter(r=>r.date===today).length;
   document.getElementById("s-week").textContent = records.filter(r=>r.date>=weekAgo).length;
 
-  drawBars("chart-type", countBy("type"));
-  drawBars("chart-tone", countBy("tone"));
-  drawBars("chart-motive", countBy("motive"));
-  drawBars("chart-action", countBy("action"));
+  drawPie("pie-type", "legend-type", countBy("type"));
+  drawPie("pie-tone", "legend-tone", countBy("tone"));
+  drawPie("pie-motive", "legend-motive", countBy("motive"));
+  drawPie("pie-action", "legend-action", countBy("action"));
 
-  const scoreFields = [
-    ["信息密度","density"],["与自己的相关性","relevance"],
-    ["认知距离","distance"],["情感强度","intensity"]
-  ];
-  document.getElementById("chart-scores").innerHTML = scoreFields.map(([label,f])=>
+  document.getElementById("chart-scores").innerHTML = SCORE_LABELS.map(([label,f])=>
     `<div class="score-avg"><span>${label}</span><span>${avg(f)}</span></div>`
   ).join("");
 
@@ -614,27 +534,58 @@ function renderStats(){
 
 function renderOptionsEditor(){
   const box = document.getElementById("options-editor");
-  box.innerHTML = Object.keys(SELECT_MAP).map(key=>`
-    <div style="margin-bottom:16px;">
-      <div style="font-size:13px;font-weight:600;margin-bottom:8px;">${FIELD_LABELS[key]}</div>
-      ${options[key].map((o,i)=>`
-        <div class="opt-row">
-          <input value="${esc(o)}" onchange="editOption('${key}',${i},this.value)">
-          <button class="danger" onclick="removeOption('${key}',${i})">删</button>
-        </div>
-      `).join("")}
-      <button class="ghost small" onclick="addOption('${key}')">+ 添加</button>
-    </div>
-  `).join("");
+  box.innerHTML = Object.keys(SELECT_MAP).map(key=>{
+    const list = options[key];
+    return `
+      <div style="margin-bottom:16px;">
+        <div style="font-size:13px;font-weight:600;margin-bottom:8px;">${FIELD_LABELS[key]}</div>
+        ${list.map((o,i)=>`
+          <div class="opt-row">
+            <input value="${esc(o)}" onchange="editOption('${key}',${i},this.value)">
+            <button class="icon-btn top-btn" ${i===0?'disabled':''} onclick="moveToTop('${key}',${i})" title="置顶">⇧</button>
+            <button class="icon-btn" ${i===0?'disabled':''} onclick="moveOption('${key}',${i},-1)" title="上移">↑</button>
+            <button class="icon-btn" ${i===list.length-1?'disabled':''} onclick="moveOption('${key}',${i},1)" title="下移">↓</button>
+            <button class="danger" onclick="removeOption('${key}',${i})">删</button>
+          </div>
+        `).join("")}
+        <button class="ghost small" onclick="addOption('${key}')">+ 添加</button>
+      </div>
+    `;
+  }).join("");
 }
 function editOption(key,i,val){ options[key][i]=val; save("video_options",options); fillSelects(); }
 function removeOption(key,i){ options[key].splice(i,1); save("video_options",options); fillSelects(); renderOptionsEditor(); }
-function addOption(key){ options[key].push("新选项"); save("video_options",options); fillSelects(); renderOptionsEditor(); }
+function addOption(key){
+  options[key].push("新选项");
+  save("video_options",options);
+  fillSelects();
+  renderOptionsEditor();
+  toast("已添加，可用 ⇧ 置顶");
+}
+function moveOption(key, i, dir){
+  const list = options[key];
+  const j = i + dir;
+  if(j < 0 || j >= list.length) return;
+  [list[i], list[j]] = [list[j], list[i]];
+  save("video_options", options);
+  fillSelects();
+  renderOptionsEditor();
+}
+function moveToTop(key, i){
+  if(i === 0) return;
+  const list = options[key];
+  const [item] = list.splice(i, 1);
+  list.unshift(item);
+  save("video_options", options);
+  fillSelects();
+  renderOptionsEditor();
+  toast("已置顶");
+}
 
 function exportCSV(){
   if(!records.length){ toast("还没有记录"); return; }
-  const headers = ["日期","时间","内容类型","一句话概括","情感基调","信息密度","与自己的相关性","认知距离","情感强度","第一眼被什么吸引","点击动机","当时的情绪","互动行为"];
-  const rows = records.map(r=>[r.date,r.time,r.type,r.summary,r.tone,r.density,r.relevance,r.distance,r.intensity,r.attract,r.motive,r.mood,r.action]);
+  const headers = ["日期","时间","内容类型","一句话概括","情感基调","信息密度","与自己的相关性","认知熟悉度","情感强度","第一眼被什么吸引","点击动机","当时的情绪","互动行为"];
+  const rows = records.map(r=>[r.date,r.time,r.type,r.summary,r.tone,r.density,r.relevance,r.familiarity,r.intensity,r.attract,r.motive,r.mood,r.action]);
   const csv = [headers,...rows].map(row=>row.map(c=>`"${String(c==null?"":c).replace(/"/g,'""')}"`).join(",")).join("\n");
   download(new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"}), "视频观看记录.csv");
 }
@@ -670,6 +621,12 @@ document.addEventListener("touchend", e=>{
   if(now - lastTouch < 300) e.preventDefault();
   lastTouch = now;
 }, {passive:false});
+
+window.addEventListener("resize", ()=>{
+  if(!document.getElementById("page-stats").classList.contains("hidden")){
+    renderStats();
+  }
+});
 </script>
 </body>
 </html>
