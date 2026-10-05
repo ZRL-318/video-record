@@ -80,9 +80,25 @@
     background: #fff;
     color: #1f2329;
   }
-  select { appearance: none; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path d='M2 4l4 4 4-4' stroke='%238a8f99' stroke-width='1.5' fill='none'/></svg>"); background-repeat: no-repeat; background-position: right 10px center; padding-right: 28px; }
+  select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path d='M2 4l4 4 4-4' stroke='%238a8f99' stroke-width='1.5' fill='none'/></svg>"); background-repeat: no-repeat; background-position: right 10px center; padding-right: 28px; }
   input:focus, select:focus, textarea:focus { outline: none; border-color: #4c8bf5; }
   textarea { resize: vertical; min-height: 52px; }
+
+  .now-row {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .now-btn {
+    background: #eef3fd;
+    color: #4c8bf5;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .now-btn:active { background: #dbe6fb; }
 
   .stars {
     display: flex;
@@ -288,8 +304,18 @@
 <div id="page-add">
   <div class="card">
     <div class="grid">
-      <div><label>日期</label><input type="date" id="f-date"></div>
-      <div><label>时间</label><input type="time" id="f-time"></div>
+      <div>
+        <label>日期</label>
+        <input type="text" id="f-date" placeholder="2026-10-05" inputmode="numeric">
+      </div>
+      <div>
+        <label>时间</label>
+        <input type="text" id="f-time" placeholder="14:30" inputmode="numeric">
+      </div>
+      <div class="now-row">
+        <button type="button" class="now-btn" onclick="fillNow()">现在</button>
+      </div>
+
       <div><label>内容类型</label><select id="f-type"></select></div>
       <div><label>情感基调</label><select id="f-tone"></select></div>
       <div class="full"><label>一句话概括</label><textarea id="f-summary" placeholder="如：3分钟讲清为什么你总是拖延"></textarea></div>
@@ -453,6 +479,13 @@ function resetStars(){
   paintStars();
 }
 
+function fillNow(){
+  const now = new Date();
+  const off = now.getTimezoneOffset() * 60000;
+  document.getElementById("f-date").value = new Date(now - off).toISOString().slice(0,10);
+  document.getElementById("f-time").value = now.toTimeString().slice(0,5);
+}
+
 function addRecord(){
   const g = id => document.getElementById(id).value.trim();
   const rec = {
@@ -471,13 +504,10 @@ function addRecord(){
   toast("已添加 ✓");
 }
 function clearForm(){
-  ["f-date","f-time","f-summary"].forEach(id=>document.getElementById(id).value="");
+  document.getElementById("f-summary").value = "";
   Object.values(SELECT_MAP).forEach(id=>document.getElementById(id).value="");
   resetStars();
-  const now = new Date();
-  const off = now.getTimezoneOffset()*60000;
-  document.getElementById("f-date").value = new Date(now-off).toISOString().slice(0,10);
-  document.getElementById("f-time").value = now.toTimeString().slice(0,5);
+  fillNow();
 }
 function deleteRecord(i){
   if(!confirm("删除这条记录？")) return;
